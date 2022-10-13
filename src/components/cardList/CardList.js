@@ -33,22 +33,20 @@ const products = [
 const CardList = () => {
   return (
     <div className="cardlist">
-      {React.Children.toArray(
-        products.map((el) => (
-          <Card className="card" style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src={el.url}
-              style={{ height: "280px", width: "auto" }}
-            />
-            <Card.Body>
-              <Card.Title>{el.name}</Card.Title>
-              <Card.Text>{el.price}</Card.Text>
-              <Button variant="primary">Add to cart</Button>
-            </Card.Body>
-          </Card>
-        ))
-      )}
+      {products.map((el) => (
+        <Card key={el.id} className="card" style={{ width: "18rem" }}>
+          <Card.Img
+            variant="top"
+            src={el.url}
+            style={{ height: "280px", width: "auto" }}
+          />
+          <Card.Body>
+            <Card.Title>{el.name}</Card.Title>
+            <Card.Text>{el.price}</Card.Text>
+            <Button variant="danger">Add to cart</Button>
+          </Card.Body>
+        </Card>
+      ))}
     </div>
   );
 };
